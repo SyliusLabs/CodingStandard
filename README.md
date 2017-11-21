@@ -10,7 +10,7 @@ Installation & usage
 1. Install this package:
 
     ```bash
-    $ composer require sylius-labs/coding-standard
+    $ composer require --dev sylius-labs/coding-standard
     ```
     
 2. Include a configuration file in your `easy-coding-standard.neon`:
