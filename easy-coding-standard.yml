@@ -1,4 +1,4 @@
-checkers:
+services:
     PhpCsFixer\Fixer\Alias\EregToPregFixer: {}
     PhpCsFixer\Fixer\Alias\NoAliasFunctionsFixer: {}
     PhpCsFixer\Fixer\Alias\PowToExponentiationFixer: {}
