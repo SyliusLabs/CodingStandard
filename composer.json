@@ -11,8 +11,11 @@
     ],
     "require": {
         "php": "^7.1",
-
-        "symplify/easy-coding-standard": "^2.5|^3.2"
+        "symplify/easy-coding-standard": "dev-master",
+        "symplify/coding-standard": "dev-master",
+        "symplify/package-builder": "dev-master",
+        "symplify/token-runner": "dev-master",
+        "symplify/better-phpdoc-parser": "dev-master"
     },
     "autoload-dev": {
         "psr-4": {
