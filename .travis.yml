@@ -4,10 +4,6 @@ php:
     - 7.1
     - 7.2
 
-env:
-    - ECS_VERSION=2.5.*
-    - ECS_VERSION=3.2.*
-
 cache:
     directories:
         - ~/.composer/cache/files
@@ -16,7 +12,6 @@ before_install:
     - phpenv config-rm xdebug.ini || true
 
 install:
-    - composer require symplify/easy-coding-standard:${ECS_VERSION} --no-update --no-scripts --prefer-dist
     - composer update --prefer-dist
 
 script:
