@@ -13,9 +13,9 @@ Installation & usage
     $ composer require --dev sylius-labs/coding-standard
     ```
     
-2. Include a configuration file in your `easy-coding-standard.neon`:
+2. Include a configuration file in your `easy-coding-standard.yml`:
 
-    ```neon
-    includes:
-        - vendor/sylius-labs/coding-standard/easy-coding-standard.neon 
+    ```yml
+    imports:
+        - { resource: 'vendor/sylius-labs/coding-standard/easy-coding-standard.yml' }
     ```
