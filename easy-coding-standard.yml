@@ -19,8 +19,9 @@ services:
     PhpCsFixer\Fixer\Basic\NonPrintableCharacterFixer: ~
     PhpCsFixer\Fixer\Casing\LowercaseConstantsFixer: ~
     PhpCsFixer\Fixer\Casing\LowercaseKeywordsFixer: ~
-    PhpCsFixer\Fixer\Casing\NativeFunctionCasingFixer: ~
+    PhpCsFixer\Fixer\Casing\LowercaseStaticReferenceFixer: ~
     PhpCsFixer\Fixer\Casing\MagicConstantCasingFixer: ~
+    PhpCsFixer\Fixer\Casing\NativeFunctionCasingFixer: ~
     PhpCsFixer\Fixer\CastNotation\CastSpacesFixer: ~
     PhpCsFixer\Fixer\CastNotation\LowercaseCastFixer: ~
     PhpCsFixer\Fixer\CastNotation\ModernizeTypesCastingFixer: ~
