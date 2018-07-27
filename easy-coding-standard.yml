@@ -53,6 +53,10 @@ services:
     PhpCsFixer\Fixer\ControlStructure\NoUselessElseFixer: ~
     PhpCsFixer\Fixer\ControlStructure\SwitchCaseSemicolonToColonFixer: ~
     PhpCsFixer\Fixer\ControlStructure\SwitchCaseSpaceFixer: ~
+    PhpCsFixer\Fixer\ControlStructure\YodaStyleFixer:
+        equal: false
+        identical: false
+        less_and_greater: false
     PhpCsFixer\Fixer\FunctionNotation\FunctionDeclarationFixer: ~
     PhpCsFixer\Fixer\FunctionNotation\FunctionTypehintSpaceFixer: ~
     PhpCsFixer\Fixer\FunctionNotation\MethodArgumentSpaceFixer: ~
