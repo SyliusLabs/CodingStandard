@@ -38,7 +38,8 @@ services:
     PhpCsFixer\Fixer\ClassNotation\ProtectedToPrivateFixer: ~
     PhpCsFixer\Fixer\ClassNotation\SelfAccessorFixer: ~
     PhpCsFixer\Fixer\ClassNotation\SingleClassElementPerStatementFixer: ~
-    PhpCsFixer\Fixer\ClassNotation\VisibilityRequiredFixer: ~
+    PhpCsFixer\Fixer\ClassNotation\VisibilityRequiredFixer:
+        elements: [const, property, method]
     PhpCsFixer\Fixer\Comment\HashToSlashCommentFixer: ~
     PhpCsFixer\Fixer\Comment\NoEmptyCommentFixer: ~
     PhpCsFixer\Fixer\Comment\NoTrailingWhitespaceInCommentFixer: ~
