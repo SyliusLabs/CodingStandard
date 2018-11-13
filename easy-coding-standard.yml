@@ -142,6 +142,20 @@ services:
     PhpCsFixer\Fixer\Whitespace\NoTrailingWhitespaceFixer: ~
     PhpCsFixer\Fixer\Whitespace\NoWhitespaceInBlankLineFixer: ~
     PhpCsFixer\Fixer\Whitespace\SingleBlankLineAtEofFixer: ~
+    SlevomatCodingStandard\Sniffs\Commenting\ForbiddenAnnotationsSniff:
+        forbiddenAnnotations:
+            - '@api'
+            - '@author'
+            - '@category'
+            - '@copyright'
+            - '@created'
+            - '@license'
+            - '@package'
+            - '@since'
+            - '@subpackage'
+            - '@version'
+    SlevomatCodingStandard\Sniffs\Commenting\InlineDocCommentDeclarationSniff: ~
+    SlevomatCodingStandard\Sniffs\Commenting\RequireOneLinePropertyDocCommentSniff: ~
 
 parameters:
     skip:
