@@ -27,6 +27,7 @@ services:
     PhpCsFixer\Fixer\CastNotation\ModernizeTypesCastingFixer: ~
     PhpCsFixer\Fixer\CastNotation\NoShortBoolCastFixer: ~
     PhpCsFixer\Fixer\CastNotation\ShortScalarCastFixer: ~
+    PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer: ~
     PhpCsFixer\Fixer\ClassNotation\ClassDefinitionFixer:
         singleItemSingleLine: true
         multiLineExtendsEachSingleLine: true
