@@ -125,19 +125,20 @@ services:
     PhpCsFixer\Fixer\Whitespace\BlankLineBeforeStatementFixer: ~
     PhpCsFixer\Fixer\Whitespace\IndentationTypeFixer: ~
     PhpCsFixer\Fixer\Whitespace\LineEndingFixer: ~
-    PhpCsFixer\Fixer\Whitespace\NoExtraConsecutiveBlankLinesFixer:
-        - 'break'
-        - 'case'
-        - 'continue'
-        - 'curly_brace_block'
-        - 'default'
-        - 'extra'
-        - 'parenthesis_brace_block'
-        - 'return'
-        - 'square_brace_block'
-        - 'switch'
-        - 'throw'
-        - 'use'
+    PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer:
+        tokens:
+            - 'break'
+            - 'case'
+            - 'continue'
+            - 'curly_brace_block'
+            - 'default'
+            - 'extra'
+            - 'parenthesis_brace_block'
+            - 'return'
+            - 'square_brace_block'
+            - 'switch'
+            - 'throw'
+            - 'use'
     PhpCsFixer\Fixer\Whitespace\NoSpacesAroundOffsetFixer: ~
     PhpCsFixer\Fixer\Whitespace\NoSpacesInsideParenthesisFixer: ~
     PhpCsFixer\Fixer\Whitespace\NoTrailingWhitespaceFixer: ~
