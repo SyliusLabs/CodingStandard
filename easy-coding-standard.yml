@@ -94,7 +94,8 @@ services:
     PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer: ~
     PhpCsFixer\Fixer\Phpdoc\NoBlankLinesAfterPhpdocFixer: ~
     PhpCsFixer\Fixer\Phpdoc\NoEmptyPhpdocFixer: ~
-    PhpCsFixer\Fixer\Phpdoc\NoSuperfluousPhpdocTagsFixer: ~
+    PhpCsFixer\Fixer\Phpdoc\NoSuperfluousPhpdocTagsFixer:
+        allow_mixed: true
     PhpCsFixer\Fixer\Phpdoc\PhpdocIndentFixer: ~
     PhpCsFixer\Fixer\Phpdoc\PhpdocInlineTagFixer: ~
     PhpCsFixer\Fixer\Phpdoc\PhpdocNoAccessFixer: ~
