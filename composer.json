@@ -13,7 +13,7 @@
         "php": "^7.1",
 
         "friendsofphp/php-cs-fixer": "^2.12",
-        "symplify/easy-coding-standard": "^6.0.1||^7.0"
+        "symplify/easy-coding-standard": "^7.0 || ^8.0"
     },
     "autoload-dev": {
         "psr-4": {
