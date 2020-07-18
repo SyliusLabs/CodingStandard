@@ -11,9 +11,7 @@
     ],
     "require": {
         "php": "^7.1",
-
-        "friendsofphp/php-cs-fixer": "^2.12",
-        "symplify/easy-coding-standard": "^7.0 || ^8.0"
+        "symplify/easy-coding-standard": "^7.3 || ^8.1"
     },
     "autoload-dev": {
         "psr-4": {
