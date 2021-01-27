@@ -1,13 +1,12 @@
 language: php
 
 php:
-    - 7.2
     - 7.3
     - 7.4
 
 env:
-    - ECS_VERSION="^7.0"
-    - ECS_VERSION="^8.0"
+    - ECS_VERSION="^8.1"
+    - ECS_VERSION="^9.0"
 
 cache:
     directories:
