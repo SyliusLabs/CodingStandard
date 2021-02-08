@@ -1,13 +1,12 @@
 language: php
 
 php:
-    - 7.2
     - 7.3
     - 7.4
+    - 8.0
 
 env:
-    - ECS_VERSION="^7.0"
-    - ECS_VERSION="^8.0"
+    - ECS_VERSION="^9.0"
 
 cache:
     directories:
@@ -22,4 +21,4 @@ install:
 script:
     - composer validate --strict
 
-    - vendor/bin/ecs check tests
+    - vendor/bin/ecs check --config ecs.php tests ecs.php
