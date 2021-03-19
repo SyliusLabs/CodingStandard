@@ -13,9 +13,25 @@ Installation & usage
     $ composer require --dev sylius-labs/coding-standard
     ```
     
-2. Include a configuration file in your `easy-coding-standard.yml`:
+2. Import the configuration file in your `ecs.php`:
 
-    ```yml
-    imports:
-        - { resource: 'vendor/sylius-labs/coding-standard/easy-coding-standard.yml' }
+    ```php
+    $containerConfigurator->import('vendor/sylius-labs/coding-standard/easy-coding-standard.php');
     ```
+   
+Example config (ecs.php)
+------------------------
+
+    ```php
+    use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+   
+    return static function (ContainerConfigurator $containerConfigurator): void {
+        $containerConfigurator->import('vendor/sylius-labs/coding-standard/easy-coding-standard.php');
+    };
+    ```
+
+Upgrade from YML to PHP config file
+-----------------------------------
+
+Use this [package](https://github.com/symplify/config-transformer) and follow their guidelines
+to automatically migrate your YML config to a PHP config file.
