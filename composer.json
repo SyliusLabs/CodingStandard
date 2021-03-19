@@ -12,7 +12,10 @@
     "require": {
         "php": "^7.3 || ^8.0",
         "slevomat/coding-standard": "^6.3",
-        "symplify/easy-coding-standard": "^8.3 || ^9.0"
+        "symplify/easy-coding-standard": "^8.0 || ^9.0"
+    },
+    "conflict": {
+        "symplify/package-builder": "^8.3"
     },
     "autoload-dev": {
         "psr-4": {
