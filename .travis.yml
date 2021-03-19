@@ -7,7 +7,7 @@ php:
 
 env:
     - ECS_VERSION="^9.0"
-    - ECS_VERSION="^8.3"
+    - ECS_VERSION="^8.0"
 
 cache:
     directories:
