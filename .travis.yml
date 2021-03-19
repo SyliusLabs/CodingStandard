@@ -7,6 +7,7 @@ php:
 
 env:
     - ECS_VERSION="^9.0"
+    - ECS_VERSION="^8.3"
 
 cache:
     directories:
@@ -16,7 +17,8 @@ before_install:
     - phpenv config-rm xdebug.ini || true
 
 install:
-    - composer update --prefer-dist $COMPOSER_FLAGS
+    - composer require symplify/easy-coding-standard:$ECS_VERSION --no-update --no-scripts
+    - composer update
 
 script:
     - composer validate --strict
