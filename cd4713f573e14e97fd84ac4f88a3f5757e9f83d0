@@ -1,0 +1,43 @@
+---------------------------------------------------------------------------
+
+by stefandoorn at 2021-02-08T15:28:59Z
+
+Took inspiration from #33, including the config file format change.
+
+---------------------------------------------------------------------------
+
+by stefandoorn at 2021-02-19T14:00:06Z
+
+cc @loevgaard took a bit of inspiration from #33 to make this PR
+
+---------------------------------------------------------------------------
+
+by loevgaard at 2021-02-19T14:48:06Z
+
+Nice if we can make this work :D Thanks @stefandoorn 🎉
+
+---------------------------------------------------------------------------
+
+by stefandoorn at 2021-02-22T08:04:12Z
+
+Ready to go @Zales0123 @pamil - WDYT?
+
+---------------------------------------------------------------------------
+
+by stefandoorn at 2021-03-04T19:04:52Z
+
+I've adjusted the PR to be only ECS `^9.0` :-)
+
+---------------------------------------------------------------------------
+
+by oallain at 2021-03-19T10:15:31Z
+
+Hello @pamil
+
+What do you think about this latest version?
+
+---------------------------------------------------------------------------
+
+by pamil at 2021-03-19T12:13:43Z
+
+Thanks, Stefan! :1st_place_medal:
