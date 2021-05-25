@@ -282,8 +282,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services->set(NoHomoglyphNamesFixer::class);
 
-    $services->set(BinaryOperatorSpacesFixer::class)
-        ->call('configure', [['align_double_arrow' => false, 'align_equals' => false]]);
+    $services->set(BinaryOperatorSpacesFixer::class);
 
     $services->set(ConcatSpaceFixer::class)
         ->call('configure', [['spacing' => 'one']]);
