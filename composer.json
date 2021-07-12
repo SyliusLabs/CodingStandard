@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": "^7.3 || ^8.0",
-        "slevomat/coding-standard": "^6.3",
+        "slevomat/coding-standard": "^7.0",
         "symplify/easy-coding-standard": "^8.0 || ^9.0"
     },
     "conflict": {
