@@ -11,13 +11,12 @@ use PhpCsFixer\Fixer\ArrayNotation\NoMultilineWhitespaceAroundDoubleArrowFixer;
 use PhpCsFixer\Fixer\ArrayNotation\NormalizeIndexBraceFixer;
 use PhpCsFixer\Fixer\ArrayNotation\NoTrailingCommaInSinglelineArrayFixer;
 use PhpCsFixer\Fixer\ArrayNotation\NoWhitespaceBeforeCommaInArrayFixer;
-use PhpCsFixer\Fixer\ArrayNotation\TrailingCommaInMultilineArrayFixer;
 use PhpCsFixer\Fixer\ArrayNotation\TrimArraySpacesFixer;
 use PhpCsFixer\Fixer\ArrayNotation\WhitespaceAfterCommaInArrayFixer;
 use PhpCsFixer\Fixer\Basic\BracesFixer;
 use PhpCsFixer\Fixer\Basic\EncodingFixer;
 use PhpCsFixer\Fixer\Basic\NonPrintableCharacterFixer;
-use PhpCsFixer\Fixer\Casing\LowercaseConstantsFixer;
+use PhpCsFixer\Fixer\Casing\ConstantCaseFixer;
 use PhpCsFixer\Fixer\Casing\LowercaseKeywordsFixer;
 use PhpCsFixer\Fixer\Casing\LowercaseStaticReferenceFixer;
 use PhpCsFixer\Fixer\Casing\MagicConstantCasingFixer;
@@ -29,7 +28,6 @@ use PhpCsFixer\Fixer\CastNotation\NoShortBoolCastFixer;
 use PhpCsFixer\Fixer\CastNotation\ShortScalarCastFixer;
 use PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer;
 use PhpCsFixer\Fixer\ClassNotation\ClassDefinitionFixer;
-use PhpCsFixer\Fixer\ClassNotation\MethodSeparationFixer;
 use PhpCsFixer\Fixer\ClassNotation\NoBlankLinesAfterClassOpeningFixer;
 use PhpCsFixer\Fixer\ClassNotation\NoNullPropertyInitializationFixer;
 use PhpCsFixer\Fixer\ClassNotation\NoPhp4ConstructorFixer;
@@ -38,7 +36,6 @@ use PhpCsFixer\Fixer\ClassNotation\ProtectedToPrivateFixer;
 use PhpCsFixer\Fixer\ClassNotation\SelfAccessorFixer;
 use PhpCsFixer\Fixer\ClassNotation\SingleClassElementPerStatementFixer;
 use PhpCsFixer\Fixer\ClassNotation\VisibilityRequiredFixer;
-use PhpCsFixer\Fixer\Comment\HashToSlashCommentFixer;
 use PhpCsFixer\Fixer\Comment\NoEmptyCommentFixer;
 use PhpCsFixer\Fixer\Comment\NoTrailingWhitespaceInCommentFixer;
 use PhpCsFixer\Fixer\Comment\SingleLineCommentStyleFixer;
@@ -53,6 +50,7 @@ use PhpCsFixer\Fixer\ControlStructure\NoUnneededCurlyBracesFixer;
 use PhpCsFixer\Fixer\ControlStructure\NoUselessElseFixer;
 use PhpCsFixer\Fixer\ControlStructure\SwitchCaseSemicolonToColonFixer;
 use PhpCsFixer\Fixer\ControlStructure\SwitchCaseSpaceFixer;
+use PhpCsFixer\Fixer\ControlStructure\TrailingCommaInMultilineFixer;
 use PhpCsFixer\Fixer\FunctionNotation\FunctionDeclarationFixer;
 use PhpCsFixer\Fixer\FunctionNotation\FunctionTypehintSpaceFixer;
 use PhpCsFixer\Fixer\FunctionNotation\MethodArgumentSpaceFixer;
@@ -67,9 +65,9 @@ use PhpCsFixer\Fixer\LanguageConstruct\CombineConsecutiveIssetsFixer;
 use PhpCsFixer\Fixer\LanguageConstruct\CombineConsecutiveUnsetsFixer;
 use PhpCsFixer\Fixer\LanguageConstruct\DeclareEqualNormalizeFixer;
 use PhpCsFixer\Fixer\LanguageConstruct\DirConstantFixer;
+use PhpCsFixer\Fixer\LanguageConstruct\ErrorSuppressionFixer;
 use PhpCsFixer\Fixer\LanguageConstruct\FunctionToConstantFixer;
 use PhpCsFixer\Fixer\LanguageConstruct\IsNullFixer;
-use PhpCsFixer\Fixer\LanguageConstruct\SilencedDeprecationErrorFixer;
 use PhpCsFixer\Fixer\ListNotation\ListSyntaxFixer;
 use PhpCsFixer\Fixer\NamespaceNotation\BlankLineAfterNamespaceFixer;
 use PhpCsFixer\Fixer\NamespaceNotation\NoLeadingNamespaceWhitespaceFixer;
@@ -77,18 +75,19 @@ use PhpCsFixer\Fixer\NamespaceNotation\SingleBlankLineBeforeNamespaceFixer;
 use PhpCsFixer\Fixer\Naming\NoHomoglyphNamesFixer;
 use PhpCsFixer\Fixer\Operator\BinaryOperatorSpacesFixer;
 use PhpCsFixer\Fixer\Operator\ConcatSpaceFixer;
+use PhpCsFixer\Fixer\Operator\IncrementStyleFixer;
 use PhpCsFixer\Fixer\Operator\NewWithBracesFixer;
 use PhpCsFixer\Fixer\Operator\ObjectOperatorWithoutWhitespaceFixer;
-use PhpCsFixer\Fixer\Operator\PreIncrementFixer;
 use PhpCsFixer\Fixer\Operator\StandardizeNotEqualsFixer;
 use PhpCsFixer\Fixer\Operator\TernaryOperatorSpacesFixer;
 use PhpCsFixer\Fixer\Operator\TernaryToNullCoalescingFixer;
 use PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer;
+use PhpCsFixer\Fixer\Phpdoc\GeneralPhpdocTagRenameFixer;
 use PhpCsFixer\Fixer\Phpdoc\NoBlankLinesAfterPhpdocFixer;
 use PhpCsFixer\Fixer\Phpdoc\NoEmptyPhpdocFixer;
 use PhpCsFixer\Fixer\Phpdoc\NoSuperfluousPhpdocTagsFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocIndentFixer;
-use PhpCsFixer\Fixer\Phpdoc\PhpdocInlineTagFixer;
+use PhpCsFixer\Fixer\Phpdoc\PhpdocInlineTagNormalizerFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocNoAccessFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocNoAliasTagFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocNoEmptyReturnFixer;
@@ -98,6 +97,7 @@ use PhpCsFixer\Fixer\Phpdoc\PhpdocReturnSelfReferenceFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocScalarFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocSeparationFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocSingleLineVarSpacingFixer;
+use PhpCsFixer\Fixer\Phpdoc\PhpdocTagTypeFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocTrimFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocTypesFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocTypesOrderFixer;
@@ -149,7 +149,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services->set(NoWhitespaceBeforeCommaInArrayFixer::class);
 
-    $services->set(TrailingCommaInMultilineArrayFixer::class);
+    $services->set(TrailingCommaInMultilineFixer::class)
+        ->call('configure', [['elements' => ['arrays']]]);
 
     $services->set(TrimArraySpacesFixer::class);
 
@@ -162,7 +163,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services->set(NonPrintableCharacterFixer::class);
 
-    $services->set(LowercaseConstantsFixer::class);
+    $services->set(ConstantCaseFixer::class)
+        ->call('configure', [['case' => 'lower']]);
 
     $services->set(LowercaseKeywordsFixer::class);
 
@@ -187,7 +189,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(ClassDefinitionFixer::class)
         ->call('configure', [['single_item_single_line' => true, 'multi_line_extends_each_single_line' => true]]);
 
-    $services->set(MethodSeparationFixer::class);
+    $services->set(ClassAttributesSeparationFixer::class)
+        ->call('configure', [['elements' => ['method']]]);
 
     $services->set(NoBlankLinesAfterClassOpeningFixer::class);
 
@@ -205,8 +208,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services->set(VisibilityRequiredFixer::class)
         ->call('configure', [['elements' => ['const', 'property', 'method']]]);
-
-    $services->set(HashToSlashCommentFixer::class);
 
     $services->set(NoEmptyCommentFixer::class);
 
@@ -269,7 +270,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services->set(IsNullFixer::class);
 
-    $services->set(SilencedDeprecationErrorFixer::class);
+    $services->set(ErrorSuppressionFixer::class);
 
     $services->set(ListSyntaxFixer::class)
         ->call('configure', [['syntax' => 'short']]);
@@ -291,7 +292,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services->set(ObjectOperatorWithoutWhitespaceFixer::class);
 
-    $services->set(PreIncrementFixer::class);
+    $services->set(IncrementStyleFixer::class)
+        ->call('configure', [['style' => 'pre']]);
 
     $services->set(StandardizeNotEqualsFixer::class);
 
@@ -310,7 +312,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services->set(PhpdocIndentFixer::class);
 
-    $services->set(PhpdocInlineTagFixer::class);
+    $services->set(GeneralPhpdocTagRenameFixer::class);
+    $services->set(PhpdocInlineTagNormalizerFixer::class);
+    $services->set(PhpdocTagTypeFixer::class);
 
     $services->set(PhpdocNoAccessFixer::class);
 
