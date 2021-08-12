@@ -190,7 +190,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->call('configure', [['single_item_single_line' => true, 'multi_line_extends_each_single_line' => true]]);
 
     $services->set(ClassAttributesSeparationFixer::class)
-        ->call('configure', [['elements' => ['method']]]);
+        ->call('configure', [['elements' => ['method' => ClassAttributesSeparationFixer::SPACING_ONE]]]);
 
     $services->set(NoBlankLinesAfterClassOpeningFixer::class);
 
