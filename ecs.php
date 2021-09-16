@@ -189,9 +189,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(ClassDefinitionFixer::class)
         ->call('configure', [['single_item_single_line' => true, 'multi_line_extends_each_single_line' => true]]);
 
-    $services->set(ClassAttributesSeparationFixer::class)
-        ->call('configure', [['elements' => ['method']]]);
-
     $services->set(NoBlankLinesAfterClassOpeningFixer::class);
 
     $services->set(NoNullPropertyInitializationFixer::class);
