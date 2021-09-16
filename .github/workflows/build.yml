@@ -13,23 +13,13 @@ jobs:
   tests:
     runs-on: ubuntu-latest
 
-    name: "PHP ${{ matrix.php }}, Symfony ${{ matrix.symfony }}, MySQL ${{ matrix.mysql }}"
+    name: "PHP ${{ matrix.php }}, ECS ${{ matrix.ecs }}"
 
     strategy:
       fail-fast: false
       matrix:
-        php: [7.4, 7.3, 7.2]
-        symfony: [4.4.*]
-        node: [10.x]
-        mysql: [5.7, 8.0]
-
-        exclude:
-          -
-            php: 7.3
-            mysql: 8.0
-
-    env:
-      ECS_VERSION: 7:0
+        php: [7.4, 7.3]
+        ecs: [9.*, 8.*]
 
     steps:
       -
@@ -45,27 +35,6 @@ jobs:
           coverage: none
 
       -
-        name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: "${{ matrix.node }}"
-
-      -
-        name: Setup MySQL
-        uses: mirromutth/mysql-action@v1.1
-        with:
-          mysql version: "${{ matrix.mysql }}"
-          mysql root password: "root"
-
-      -
-        name: Output PHP version for Symfony CLI
-        run: php -v | head -n 1 | awk '{ print $2 }' > .php-version
-
-      -
-        name: Install certificates
-        run: symfony server:ca:install
-
-      -
         name: Get Composer cache directory
         id: composer-cache
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
@@ -78,6 +47,11 @@ jobs:
           key: ${{ runner.os }}-php-${{ matrix.php }}-composer-${{ hashFiles('**/composer.json **/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-php-${{ matrix.php }}-composer-
+
+      -
+        name: Require EasyCodingStandard version
+        run: composer require symplify/easy-coding-standard:${{ matrix.ecs }} --no-update --no-scripts
+
       -
         name: Install PHP dependencies
         run: composer install --no-interaction
@@ -87,9 +61,5 @@ jobs:
         run: composer validate --ansi --strict
 
       -
-        name: Run security check
-        run: symfony security:check
-
-      -
         name: Run test
-        run: vendor/bin/ecs check tests
+        run: vendor/bin/ecs check --config ecs.php tests ecs.php
