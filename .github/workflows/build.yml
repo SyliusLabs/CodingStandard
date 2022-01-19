@@ -18,8 +18,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: [7.4, 7.3]
-        ecs: [9.*, 8.*]
+        php: [8.0]
+        ecs: [10.*, 9.*]
 
     steps:
       -
