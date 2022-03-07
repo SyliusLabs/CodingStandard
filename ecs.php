@@ -150,7 +150,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(NoWhitespaceBeforeCommaInArrayFixer::class);
 
     $services->set(TrailingCommaInMultilineFixer::class)
-        ->call('configure', [['elements' => ['arrays']]]);
+        ->call('configure', [['elements' => ['arrays', 'arguments', 'parameters']]]);
 
     $services->set(TrimArraySpacesFixer::class);
 
