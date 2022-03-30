@@ -14,7 +14,11 @@ class Sample
     ) {
     }
 
-    public function foo(): void
+    public function foo(FooBar $fooBar): void
     {
+        $fooBar
+            ->setFoo('foo')
+            ->setBar(self::BAR)
+        ;
     }
 }

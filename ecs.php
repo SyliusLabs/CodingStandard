@@ -107,6 +107,7 @@ use PhpCsFixer\Fixer\PhpTag\FullOpeningTagFixer;
 use PhpCsFixer\Fixer\PhpTag\NoClosingTagFixer;
 use PhpCsFixer\Fixer\PhpUnit\PhpUnitDedicateAssertFixer;
 use PhpCsFixer\Fixer\PhpUnit\PhpUnitFqcnAnnotationFixer;
+use PhpCsFixer\Fixer\Semicolon\MultilineWhitespaceBeforeSemicolonsFixer;
 use PhpCsFixer\Fixer\Semicolon\NoEmptyStatementFixer;
 use PhpCsFixer\Fixer\Semicolon\NoSinglelineWhitespaceBeforeSemicolonsFixer;
 use PhpCsFixer\Fixer\Semicolon\SpaceAfterSemicolonFixer;
@@ -142,6 +143,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->call('configure', [['syntax' => 'short']]);
 
     $services->set(NoMultilineWhitespaceAroundDoubleArrowFixer::class);
+
+    $services->set(MultilineWhitespaceBeforeSemicolonsFixer::class)
+        ->call('configure', [['strategy' => 'new_line_for_chained_calls']]);
 
     $services->set(NormalizeIndexBraceFixer::class);
 
