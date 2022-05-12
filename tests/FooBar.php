@@ -23,4 +23,12 @@ final class FooBar
 
         return $this;
     }
+
+    public function isBaz(): bool
+    {
+        return
+            str_contains($this->foo, 'baz') &&
+            str_contains($this->bar, 'baz')
+        ;
+    }
 }

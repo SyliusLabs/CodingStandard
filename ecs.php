@@ -78,6 +78,7 @@ use PhpCsFixer\Fixer\Operator\ConcatSpaceFixer;
 use PhpCsFixer\Fixer\Operator\IncrementStyleFixer;
 use PhpCsFixer\Fixer\Operator\NewWithBracesFixer;
 use PhpCsFixer\Fixer\Operator\ObjectOperatorWithoutWhitespaceFixer;
+use PhpCsFixer\Fixer\Operator\OperatorLinebreakFixer;
 use PhpCsFixer\Fixer\Operator\StandardizeNotEqualsFixer;
 use PhpCsFixer\Fixer\Operator\TernaryOperatorSpacesFixer;
 use PhpCsFixer\Fixer\Operator\TernaryToNullCoalescingFixer;
@@ -327,6 +328,11 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(TernaryToNullCoalescingFixer::class);
 
     $services->set(UnaryOperatorSpacesFixer::class);
+
+    $services
+        ->set(OperatorLinebreakFixer::class)
+        ->call('configure', [['only_booleans' => true, 'position' => 'end']])
+    ;
 
     $services->set(NoBlankLinesAfterPhpdocFixer::class);
 
