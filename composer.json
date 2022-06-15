@@ -15,6 +15,7 @@
         "symplify/easy-coding-standard": "^9.0 || ^10.0"
     },
     "conflict": {
+        "symplify/easy-coding-standard": ">=10.2.11",
         "symplify/package-builder": "^8.3"
     },
     "autoload-dev": {
