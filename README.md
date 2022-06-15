@@ -16,17 +16,17 @@ Installation & usage
 2. Import the configuration file in your `ecs.php`:
 
     ```php
-    $containerConfigurator->import('vendor/sylius-labs/coding-standard/ecs.php');
+    $ecsConfig->import('vendor/sylius-labs/coding-standard/ecs.php');
     ```
    
 Example config (ecs.php)
 ------------------------
 
     ```php
-    use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+    use Symplify\EasyCodingStandard\Config\ECSConfig;;
    
-    return static function (ContainerConfigurator $containerConfigurator): void {
-        $containerConfigurator->import('vendor/sylius-labs/coding-standard/ecs.php');
+    return static function (ECSConfig $ecsConfig): void {
+        $ecsConfig->import('vendor/sylius-labs/coding-standard/ecs.php');
     };
     ```
 
