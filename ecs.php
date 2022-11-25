@@ -39,6 +39,7 @@ use PhpCsFixer\Fixer\ClassNotation\VisibilityRequiredFixer;
 use PhpCsFixer\Fixer\Comment\NoEmptyCommentFixer;
 use PhpCsFixer\Fixer\Comment\NoTrailingWhitespaceInCommentFixer;
 use PhpCsFixer\Fixer\Comment\SingleLineCommentStyleFixer;
+use PhpCsFixer\Fixer\ConfigurableFixerInterface;
 use PhpCsFixer\Fixer\ConstantNotation\NativeConstantInvocationFixer;
 use PhpCsFixer\Fixer\ControlStructure\ElseifFixer;
 use PhpCsFixer\Fixer\ControlStructure\IncludeFixer;
@@ -256,6 +257,11 @@ return static function (ECSConfig $ecsConfig): void {
     $ecsConfig->ruleWithConfiguration(SingleLineCommentStyleFixer::class, ['comment_types' => ['hash']]);
     $ecsConfig->ruleWithConfiguration(TrailingCommaInMultilineFixer::class, ['elements' => ['arrays', 'arguments', 'parameters']]);
     $ecsConfig->ruleWithConfiguration(VisibilityRequiredFixer::class, ['elements' => ['const', 'property', 'method']]);
+
+    // ECS 10 issue
+    if (is_a(PhpdocSeparationFixer::class, ConfigurableFixerInterface::class, true)) {
+        $ecsConfig->ruleWithConfiguration(PhpdocSeparationFixer::class, ['groups' => [['Given', 'When', 'Then'], ['var', 'phpstan-var', 'psalm-var'], ['return', 'phpstan-return', 'psalm-return'], ['param', 'phpstan-param', 'psalm-param']]]);
+    }
 
     $ecsConfig->skip([VisibilityRequiredFixer::class => ['*Spec.php']]);
 };
