@@ -109,7 +109,6 @@ use PhpCsFixer\Fixer\PhpTag\FullOpeningTagFixer;
 use PhpCsFixer\Fixer\PhpTag\NoClosingTagFixer;
 use PhpCsFixer\Fixer\PhpUnit\PhpUnitDedicateAssertFixer;
 use PhpCsFixer\Fixer\PhpUnit\PhpUnitFqcnAnnotationFixer;
-use PhpCsFixer\Fixer\Semicolon\MultilineWhitespaceBeforeSemicolonsFixer;
 use PhpCsFixer\Fixer\Semicolon\NoEmptyStatementFixer;
 use PhpCsFixer\Fixer\Semicolon\NoSinglelineWhitespaceBeforeSemicolonsFixer;
 use PhpCsFixer\Fixer\Semicolon\SpaceAfterSemicolonFixer;
@@ -248,7 +247,6 @@ return static function (ECSConfig $ecsConfig): void {
     $ecsConfig->ruleWithConfiguration(ForbiddenAnnotationsSniff::class, ['forbiddenAnnotations' => ['@api', '@author', '@category', '@copyright', '@created', '@license', '@package', '@since', '@subpackage', '@version']]);
     $ecsConfig->ruleWithConfiguration(IncrementStyleFixer::class, ['style' => 'pre']);
     $ecsConfig->ruleWithConfiguration(ListSyntaxFixer::class, ['syntax' => 'short']);
-    $ecsConfig->ruleWithConfiguration(MultilineWhitespaceBeforeSemicolonsFixer::class, ['strategy' => 'new_line_for_chained_calls']);
     $ecsConfig->ruleWithConfiguration(NoExtraBlankLinesFixer::class, ['tokens' => ['break', 'case', 'continue', 'curly_brace_block', 'default', 'extra', 'parenthesis_brace_block', 'return', 'square_brace_block', 'switch', 'throw', 'use']]);
     $ecsConfig->ruleWithConfiguration(NoMixedEchoPrintFixer::class, ['use' => 'echo']);
     $ecsConfig->ruleWithConfiguration(NoSuperfluousPhpdocTagsFixer::class, ['allow_mixed' => true]);
