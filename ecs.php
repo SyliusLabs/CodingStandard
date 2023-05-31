@@ -258,7 +258,7 @@ return static function (ECSConfig $ecsConfig): void {
 
     // ECS 10 issue
     if (is_a(PhpdocSeparationFixer::class, ConfigurableFixerInterface::class, true)) {
-        $ecsConfig->ruleWithConfiguration(PhpdocSeparationFixer::class, ['groups' => [['Given', 'When', 'Then'], ['var', 'phpstan-var', 'psalm-var'], ['return', 'phpstan-return', 'psalm-return'], ['param', 'phpstan-param', 'psalm-param']]]);
+        $ecsConfig->ruleWithConfiguration(PhpdocSeparationFixer::class, ['groups' => [['Given', 'When', 'Then'], ['var', 'phpstan-var', 'psalm-var'], ['return', 'phpstan-return', 'psalm-return'], ['param', 'phpstan-param', 'psalm-param'], ['template', 'implements', 'extends', 'phpstan-template', 'psalm-template', 'template-covariant', 'psalm-template-covariant', 'template-implements', 'template-extends']]]);
     }
 
     $ecsConfig->skip([VisibilityRequiredFixer::class => ['*Spec.php']]);
