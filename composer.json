@@ -19,7 +19,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\SyliusLabs\\CodingStandard\\": "tests/"
+            "Tests\\CodingStandard\\": "tests/"
         }
     },
     "extra": {
