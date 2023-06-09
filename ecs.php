@@ -95,6 +95,7 @@ use PhpCsFixer\Fixer\Phpdoc\PhpdocNoAliasTagFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocNoEmptyReturnFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocNoPackageFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocNoUselessInheritdocFixer;
+use PhpCsFixer\Fixer\Phpdoc\PhpdocOrderFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocReturnSelfReferenceFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocScalarFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocSeparationFixer;
@@ -256,9 +257,12 @@ return static function (ECSConfig $ecsConfig): void {
     $ecsConfig->ruleWithConfiguration(TrailingCommaInMultilineFixer::class, ['elements' => ['arrays', 'arguments', 'parameters']]);
     $ecsConfig->ruleWithConfiguration(VisibilityRequiredFixer::class, ['elements' => ['const', 'property', 'method']]);
 
-    // ECS 10 issue
+    // ECS 10 issues
+    if (is_a(PhpdocOrderFixer::class, ConfigurableFixerInterface::class, true)) {
+        $ecsConfig->ruleWithConfiguration(PhpdocOrderFixer::class, ['order' => ['Given', 'When', 'Then']]);
+    }
     if (is_a(PhpdocSeparationFixer::class, ConfigurableFixerInterface::class, true)) {
-        $ecsConfig->ruleWithConfiguration(PhpdocSeparationFixer::class, ['groups' => [['Given', 'When', 'Then'], ['var', 'phpstan-var', 'psalm-var'], ['return', 'phpstan-return', 'psalm-return'], ['param', 'phpstan-param', 'psalm-param']]]);
+        $ecsConfig->ruleWithConfiguration(PhpdocSeparationFixer::class, ['groups' => [['Given', 'When', 'Then'], ['var', 'phpstan-var', 'psalm-var'], ['return', 'phpstan-return', 'psalm-return'], ['param', 'phpstan-param', 'psalm-param'], ['template', 'implements', 'extends', 'phpstan-template', 'psalm-template', 'template-covariant', 'psalm-template-covariant', 'template-implements', 'template-extends']]]);
     }
 
     $ecsConfig->skip([VisibilityRequiredFixer::class => ['*Spec.php']]);
