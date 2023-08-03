@@ -69,3 +69,16 @@ jobs:
       -
         name: Run test
         run: vendor/bin/ecs check --config ecs.php tests ecs.php
+
+      -
+        name: "Check exported files"
+        run: |
+            EXPECTED="LICENSE,README.md,composer.json,ecs.php"
+            CURRENT="$(
+                git archive HEAD \
+                    | tar --list \
+                    | paste --serial --delimiters=","
+            )"
+            echo "CURRENT =${CURRENT}"
+            echo "EXPECTED=${EXPECTED}"
+            test "${CURRENT}" = "${EXPECTED}"
